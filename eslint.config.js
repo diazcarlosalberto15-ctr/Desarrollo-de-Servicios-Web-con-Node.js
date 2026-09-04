@@ -10,7 +10,8 @@ module.exports = [
             globals: {
                 require: 'readonly',
                 module: 'writable',
-                exports: 'writable'
+                exports: 'writable',
+                __dirname: 'readonly'
             }
 
         },
@@ -20,7 +21,19 @@ module.exports = [
     },
         //configuaracion adicional (Solo aplica a archivos de test)
         {
-
+        files: ['tests/**/*.js'],
+            languageOptions: {
+            globals: {
+            require: 'readonly',
+            module: 'writable',
+            exports: 'writable',
+            describe: 'readonly',
+            test:'readonly',
+            expect:'readonly',
+            beforeEach:'readonly',
+            jest:'readonly'
+            }
+        }
         },
         //Exclusiones globales (carpetas o archivos que eslint no debe verificar/analizar)
         {
